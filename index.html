@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>江阴初级中学初二28班聊天群相关工具</title>
+    <title>初二28班聊天群 · 自治章程</title>
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script" async></script>
     <script>
         window.MathJax = {
@@ -17,48 +16,28 @@
         };
     </script>
     <style>
-        :root {
-            --bg: #fefefe;
-            --text: #1e1e1e;
-            --accent: #b30000;
-            --accent-light: #d40000;
-            --muted: #555;
-            --border: #e0dcd5;
-            --card-bg: #fdfcf9;
-            --card-hover: #f9f5ee;
-            --shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
-            --shadow-hover: 0 3px 10px rgba(0, 0, 0, 0.10);
-            --radius: 8px;
-            --transition: 0.2s ease;
-            --toc-bg: rgba(255, 252, 240, 0.96);
-        }
-
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
-
         body {
             font-family: "宋体", "SimSun", "Times New Roman", "Noto Serif SC", serif;
-            background-color: #f5f2eb;
+            background: #f5f2eb;
             min-height: 100vh;
             display: flex;
             justify-content: center;
             padding: 30px 16px 60px;
             line-height: 1.8;
-            color: var(--text);
-            position: relative;
+            color: #1e1e1e;
         }
-
         .app-container {
             width: 100%;
-            max-width: 900px;
+            max-width: 950px;
             display: flex;
             flex-direction: column;
             gap: 0;
         }
-
         .breadcrumb {
             position: sticky;
             top: 12px;
@@ -68,168 +47,84 @@
             flex-wrap: wrap;
             gap: 6px;
             font-size: 14px;
-            color: var(--muted);
+            color: #555;
             padding: 10px 16px;
-            background: rgba(253, 252, 249, 0.92);
+            background: rgba(253, 252, 249, 0.96);
             backdrop-filter: blur(8px);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            margin-bottom: 16px;
-            box-shadow: var(--shadow);
-            user-select: none;
+            border: 1px solid #e0dcd5;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
         }
-
         .breadcrumb .crumb {
             cursor: pointer;
-            color: var(--accent);
+            color: #b30000;
             font-weight: bold;
-            transition: all var(--transition);
-            white-space: nowrap;
-            padding: 5px 8px;
-            border-radius: 20px;
-            background: rgba(179, 0, 0, 0.02);
+            transition: all 0.2s;
+            padding: 4px 10px;
+            border-radius: 24px;
+            background: rgba(179,0,0,0.02);
         }
+        .breadcrumb .crumb:hover { background: rgba(179,0,0,0.1); transform: translateY(-1px); }
+        .breadcrumb .crumb.current { color: #2c2c2c; cursor: default; background: transparent; pointer-events: none; }
+        .breadcrumb .sep { color: #bbb; margin: 0 2px; }
 
-        .breadcrumb .crumb:hover {
-            color: var(--accent-light);
-            background: rgba(179, 0, 0, 0.08);
-            transform: translateY(-1px);
-        }
-
-        .breadcrumb .crumb.current {
-            color: var(--text);
-            cursor: default;
-            background: transparent;
-            pointer-events: none;
-        }
-
-        .breadcrumb .sep {
-            color: #bbb;
-            font-size: 16px;
-            margin: 0 2px;
-        }
-
-        .list-view {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            animation: fadeSlideIn 0.3s ease;
-        }
-
-        .list-view.hidden {
-            display: none;
-        }
-
-        @keyframes fadeSlideIn {
-            from {
-                opacity: 0;
-                transform: translateY(8px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+        .list-view { display: flex; flex-direction: column; gap: 12px; animation: fadeIn 0.3s ease; }
+        .list-view.hidden { display: none; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
 
         .list-card {
             display: flex;
             align-items: center;
             gap: 14px;
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 16px 20px;
+            background: #fdfcf9;
+            border: 1px solid #e0dcd5;
+            border-radius: 14px;
+            padding: 14px 20px;
             cursor: pointer;
-            transition: all var(--transition);
-            box-shadow: var(--shadow);
+            transition: all 0.2s;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
         }
-
-        .list-card:hover {
-            background: var(--card-hover);
-            box-shadow: var(--shadow-hover);
-            transform: translateY(-1px);
-        }
-
+        .list-card:hover { background: #f9f5ee; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transform: translateY(-1px); }
         .list-card .icon {
-            flex-shrink: 0;
-            width: 42px;
-            height: 42px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
+            font-size: 22px;
             font-weight: bold;
-            color: #fff;
+            color: white;
+            flex-shrink: 0;
         }
-
-        .icon-folder {
-            background: #c9a96e;
-        }
-
-        .icon-law {
-            background: #b30000;
-        }
-
-        .icon-doc {
-            background: #8b6f5e;
-        }
-
-        .list-card .card-info {
-            flex: 1;
-        }
-
-        .list-card .card-title {
-            font-size: 17px;
-            font-weight: bold;
-            color: #2a2a2a;
-        }
-
-        .list-card .card-meta {
-            font-size: 13px;
-            color: #999;
-            margin-top: 2px;
-        }
-
-        .list-card .arrow {
-            font-size: 18px;
-            color: #c0b8a8;
-            transition: transform var(--transition);
-        }
-
-        .list-card:hover .arrow {
-            transform: translateX(3px);
-        }
-
+        .icon-folder { background: #c9a96e; }
+        .icon-law { background: #b30000; }
+        .icon-rule { background: #8b6f5e; }
+        .icon-elect { background: #2c6e6e; }
+        .card-info { flex: 1; }
+        .card-title { font-size: 17px; font-weight: bold; color: #2a2a2a; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+        .card-meta { font-size: 13px; color: #999; margin-top: 2px; }
+        .arrow { font-size: 20px; color: #c0b8a8; transition: transform 0.2s; }
+        .list-card:hover .arrow { transform: translateX(3px); }
         .read-badge {
             font-size: 11px;
-            padding: 2px 8px;
-            border-radius: 20px;
+            padding: 2px 10px;
+            border-radius: 30px;
             background: #f0f0f0;
             color: #666;
-            margin-left: 8px;
             white-space: nowrap;
         }
-
-        .read-badge.read {
-            background: #c8e6d9;
-            color: #2e7d32;
-        }
-
-        .read-badge.unread {
-            background: #ffe0b2;
-            color: #bf360c;
-        }
+        .read-badge.read { background: #c8e6d9; color: #2e7d32; }
+        .read-badge.unread { background: #ffe0b2; color: #bf360c; }
 
         .agree-footer {
-            margin-top: 20px;
+            margin-top: 28px;
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 8px;
         }
-
         .agree-btn {
             background: #aaa;
             border: none;
@@ -239,142 +134,50 @@
             padding: 10px 28px;
             border-radius: 40px;
             cursor: not-allowed;
-            transition: all 0.2s;
-            font-family: inherit;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-            width: 220px;
+            transition: 0.2s;
+            width: 240px;
             letter-spacing: 2px;
+            font-family: inherit;
         }
+        .agree-btn.active { background: #b30000; cursor: pointer; }
+        .agree-btn.active:hover { background: #d40000; transform: scale(1.02); }
+        .agree-hint { font-size: 13px; color: #888; text-align: center; }
 
-        .agree-btn.active {
-            background: var(--accent);
-            cursor: pointer;
-        }
-
-        .agree-btn.active:hover {
-            background: var(--accent-light);
-            transform: scale(1.02);
-        }
-
-        .agree-hint {
-            font-size: 13px;
-            color: #888;
-            text-align: center;
-        }
-
-        .content-view {
-            display: none;
-            animation: fadeSlideIn 0.35s ease;
-        }
-
-        .content-view.active {
-            display: block;
-        }
-
+        .content-view { display: none; animation: fadeIn 0.3s ease; }
+        .content-view.active { display: block; }
         .doc-body {
-            background-color: #fefefe;
+            background: #fefefe;
             padding: 30px 36px;
-            line-height: 2;
-            color: #1e1e1e;
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
+            border: 1px solid #e0dcd5;
+            border-radius: 18px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
             font-size: 16px;
-        }
-
-        .doc-body .doc-title {
-            text-align: center;
-            font-size: 28px;
-            font-weight: bold;
-            color: #b30000;
-            margin: 20px 0 10px;
-            letter-spacing: 4px;
-        }
-
-        .doc-body .doc-subtitle {
-            text-align: center;
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 30px;
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 20px;
-        }
-
-        .doc-body .preamble {
-            margin-bottom: 30px;
-            text-indent: 2em;
             line-height: 2;
         }
-
-        .doc-body .chapter {
-            font-size: 20px;
-            font-weight: bold;
-            text-align: center;
-            margin: 40px 0 20px;
-            color: #b30000;
-            scroll-margin-top: 70px;
-        }
-
-        .doc-body .section {
-            font-size: 18px;
-            font-weight: bold;
-            margin: 25px 0 15px;
-            color: #a03000;
-            border-left: 4px solid #b30000;
-            padding-left: 15px;
-            scroll-margin-top: 70px;
-        }
-
-        .doc-body .article {
-            margin: 1.2em 0;
-            scroll-margin-top: 70px;
-            display: flex;
-            flex-wrap: wrap;
-        }
-
-        .doc-body .article-number {
-            font-weight: bold;
-            margin-right: 1em;
-            white-space: nowrap;
-            color: #2c2c2c;
-        }
-
-        .doc-body .article-content {
-            flex: 1;
-        }
-
-        .doc-body .doc-end {
-            text-align: right;
-            font-style: italic;
-            color: #555;
-            margin-top: 40px;
-            padding-top: 16px;
-            border-top: 1px solid #ddd;
-            font-size: 14px;
-        }
-
+        .doc-body .doc-title { text-align: center; font-size: 28px; font-weight: bold; color: #b30000; margin: 20px 0 10px; }
+        .doc-body .doc-subtitle { text-align: center; font-size: 14px; color: #666; margin-bottom: 30px; border-bottom: 1px solid #ddd; padding-bottom: 20px; }
+        .doc-body .chapter { font-size: 20px; font-weight: bold; text-align: center; margin: 40px 0 20px; color: #b30000; scroll-margin-top: 80px; }
+        .doc-body .section { font-size: 18px; font-weight: bold; margin: 25px 0 15px; color: #a03000; border-left: 4px solid #b30000; padding-left: 15px; scroll-margin-top: 80px; }
+        .doc-body .article { margin: 1.2em 0; display: flex; flex-wrap: wrap; scroll-margin-top: 80px; }
+        .doc-body .article-number { font-weight: bold; margin-right: 1em; white-space: nowrap; color: #2c2c2c; }
+        .doc-body .article-content { flex: 1; }
+        .doc-body .doc-end { text-align: right; font-style: italic; color: #555; margin-top: 40px; padding-top: 16px; border-top: 1px solid #ddd; font-size: 14px; }
         .back-btn {
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 9px 18px;
+            background: #fdfcf9;
+            border: 1px solid #e0dcd5;
+            border-radius: 40px;
+            padding: 8px 20px;
             cursor: pointer;
-            font-family: inherit;
             font-size: 14px;
-            color: var(--accent);
+            color: #b30000;
             font-weight: bold;
-            transition: all var(--transition);
-            box-shadow: var(--shadow);
             margin-bottom: 16px;
+            transition: 0.2s;
         }
-
-        .back-btn:hover {
-            background: var(--card-hover);
-            box-shadow: var(--shadow-hover);
-        }
+        .back-btn:hover { background: #f9f5ee; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
 
         .floating-toc {
             position: fixed;
@@ -382,40 +185,20 @@
             right: 20px;
             width: 260px;
             max-height: 70vh;
-            background: var(--toc-bg);
+            background: rgba(255, 252, 240, 0.97);
             backdrop-filter: blur(12px);
-            border-radius: 16px;
-            border: 1px solid rgba(224, 220, 213, 0.8);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            border-radius: 20px;
+            border: 1px solid rgba(224,220,213,0.9);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
             padding: 16px 12px;
             overflow-y: auto;
             z-index: 99;
             display: none;
         }
-
-        .floating-toc.visible {
-            display: block;
-        }
-
-        .floating-toc h4 {
-            font-size: 16px;
-            font-weight: bold;
-            color: var(--accent);
-            margin: 0 0 12px 0;
-            padding-bottom: 6px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .floating-toc .toc-list {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .floating-toc .toc-list li {
-            margin: 8px 0;
-        }
-
+        .floating-toc.visible { display: block; }
+        .floating-toc h4 { font-size: 16px; font-weight: bold; color: #b30000; margin-bottom: 12px; border-bottom: 1px solid #e0dcd5; padding-bottom: 6px; }
+        .floating-toc .toc-list { list-style: none; margin: 0; padding: 0; }
+        .floating-toc .toc-list li { margin: 8px 0; }
         .floating-toc .toc-list a {
             text-decoration: none;
             color: #4a3b2c;
@@ -423,469 +206,427 @@
             display: block;
             padding: 4px 8px;
             border-radius: 12px;
-            transition: all 0.15s;
+            transition: 0.15s;
             cursor: pointer;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
         }
-
-        .floating-toc .toc-list a:hover {
-            background: rgba(179, 0, 0, 0.08);
-            color: var(--accent);
-        }
-
-        .floating-toc .toc-list a.active {
-            background: rgba(179, 0, 0, 0.12);
-            color: var(--accent);
-            font-weight: bold;
-            border-left: 3px solid var(--accent);
-            padding-left: 10px;
-        }
-
-        .toc-level-1 {
-            font-weight: 600;
-        }
-
-        .toc-level-2 {
-            padding-left: 12px;
-        }
-
-        @media (max-width: 900px) {
-            .floating-toc {
-                width: 240px;
-                right: 10px;
-                top: 80px;
-            }
-        }
-
-        @media (max-width: 720px) {
-            .floating-toc {
-                display: none !important;
-            }
-
-            .doc-body {
-                padding: 20px 16px;
-            }
-        }
-
-        @media (max-width: 600px) {
-            body {
-                padding: 16px 10px 40px;
-            }
-
-            .doc-body .doc-title {
-                font-size: 22px;
-            }
-
-            .doc-body .chapter {
-                font-size: 17px;
-            }
-        }
+        .floating-toc .toc-list a:hover { background: rgba(179,0,0,0.08); color: #b30000; }
+        .floating-toc .toc-list a.active { background: rgba(179,0,0,0.12); color: #b30000; font-weight: bold; border-left: 3px solid #b30000; padding-left: 10px; }
+        .toc-level-1 { font-weight: 600; }
+        .toc-level-2 { padding-left: 12px; }
+        @media (max-width: 900px) { .floating-toc { width: 230px; right: 8px; top: 80px; } }
+        @media (max-width: 720px) { .floating-toc { display: none !important; } .doc-body { padding: 20px 18px; } }
     </style>
 </head>
-
 <body>
-    <div class="app-container" id="appContainer">
-        <nav class="breadcrumb" id="breadcrumb"><span class="crumb current" data-target="home">📁 首页</span></nav>
-        <div class="list-view" id="listHome">
-            <div class="list-card" data-action="openFolder" data-folder="入群必读">
-                <div class="icon icon-folder">📂</div>
-                <div class="card-info">
-                    <div class="card-title">入群必读</div>
-                    <div class="card-meta">包含 2 份文件</div>
-                </div>
-                <span class="arrow">›</span>
+<div class="app-container" id="appContainer">
+    <nav class="breadcrumb" id="breadcrumb"><span class="crumb current" data-target="home">🏠 首页</span></nav>
+    <!-- 首页：文件夹入口 -->
+    <div class="list-view" id="listHome">
+        <div class="list-card" data-action="openFolder" data-folder="constitution">
+            <div class="icon icon-folder">📂</div>
+            <div class="card-info">
+                <div class="card-title">📖 入群必读 · 自治章程全编</div>
+                <div class="card-meta">根本法 + 5部配套条例</div>
             </div>
-        </div>
-        <div class="list-view hidden" id="listFolder">
-            <button class="back-btn" data-action="backToHome"><span class="back-arrow">←</span> 返回首页</button>
-            <div class="list-card" data-action="openDoc" data-doc="general">
-                <div class="icon icon-law">⚖</div>
-                <div class="card-info">
-                    <div class="card-title">社群自治总纲 <span class="read-badge" id="badgeGeneral">未读</span></div>
-                    <div class="card-meta">2026年5月30日</div>
-                </div>
-                <span class="arrow">›</span>
-            </div>
-            <div class="list-card" data-action="openDoc" data-doc="penal">
-                <div class="icon icon-doc">📜</div>
-                <div class="card-info">
-                    <div class="card-title">严重违规行为处理条例 <span class="read-badge" id="badgePenal">未读</span></div>
-                    <div class="card-meta">2026年5月30日</div>
-                </div>
-                <span class="arrow">›</span>
-            </div>
-            <div class="agree-footer">
-                <button class="agree-btn" id="agreeBtn" disabled>我已阅读并同意</button>
-                <div class="agree-hint" id="agreeHint">请先阅读所有文件</div>
-            </div>
-        </div>
-
-        <!-- 社群自治总纲 - 完整内容 -->
-        <div class="content-view" id="docGeneral">
-            <button class="back-btn" data-action="backToFolder"><span class="back-arrow">←</span> 返回文件列表</button>
-            <div class="doc-body">
-                <div class="doc-title">社群自治总纲</div>
-                <div class="doc-subtitle">（2026年5月29日版 · 待审议）</div>
-                <div class="preamble">
-                    <strong>序　言</strong><br>本群全体成员，为维系彼此信赖之纽带，保障自由、有序、趣味之交流环境，基于共同意志，特制定本总纲，以为群内一切活动之根本准则。</div>
-                <div class="chapter">第一章　总　纲</div>
-                <div class="article"><span class="article-number">第一条</span>
-                    <div class="article-content">
-                        本群是由江阴初级中学初二28班部分同学，基于自愿、平等、互信原则结成的网络社群。本群为独立虚拟空间，不依附于任何现实组织，不参与现实学校管理，仅供成员课余交流、分享趣闻、互助学习之用。
-                    </div>
-                </div>
-                <div class="article"><span class="article-number">第二条</span>
-                    <div class="article-content">
-                        本群以“完全信赖、自由表达、相互尊重、保守秘密”为核心准则。鼓励成员在不违反群规的前提下，发表非恶意的任何形式内容，包括怪异图片、冷门梗、抽象发言及实验性创作。本群严禁任何形式的网络暴力、人身攻击和恶意造谣，倡导友善、理性、包容的交流风气。
-                    </div>
-                </div>
-                <div class="article"><span class="article-number">第三条</span>
-                    <div class="article-content">
-                        本群实行在群主协调下的管理员分工负责制。管理员由全体成员选举产生，对全体成员负责，受成员监督。管理员依照本总纲及配套条例维护群聊秩序、保障成员权利。对管理员履职行为有异议者，应通过申诉、复核等正当程序提出，不得以破坏秩序的方式对抗。
-                    </div>
-                </div>
-                <div class="article"><span class="article-number">第四条</span>
-                    <div class="article-content">
-                        本群依照本总纲及依据其制定的《严重违规行为处理条例》《日常秩序维护办法》《群内纠纷调解办法》实行自治管理。全体成员在规则面前一律平等，平等享有权利，平等履行义务。</div>
-                </div>
-                <div class="article"><span class="article-number">第五条</span>
-                    <div class="article-content">本群规则仅适用于群内虚拟空间。成员在现实生活中的行为，由其本人依法自行负责。本群规则之效力，不得与中华人民共和国法律、法规及公序良俗相抵触。
-                    </div>
-                </div>
-                <div class="chapter">第二章　成员基本权利</div>
-                <div class="article"><span class="article-number">第六条</span>
-                    <div class="article-content">成员享有在总纲允许范围内自由发表观点、分享各类内容的权利。</div>
-                </div>
-                <div class="article"><span class="article-number">第七条</span>
-                    <div class="article-content">
-                        入群时间达七日之正式成员，享有选举权与被选举权：<br>（一）选举权：有权参与管理员的投票选举。<br>（二）被选举权：有权被提名为管理员候选人并当选任职。<br>（三）选举办法：由群主或现任管理员组织匿名投票，得票前三名者，依次担任行政管理员、司法管理员、监察管理员。选举每六个月举行一次，如管理员空缺超过两人，须提前举行。<br>（四）群主不参与管理员选举，但拥有对选举结果的确认权，确认仅限于核实程序是否合规。
-                    </div>
-                </div>
-                <div class="article"><span class="article-number">第八条</span>
-                    <div class="article-content">正式成员有权对新成员入群申请进行投票。投票选项为“同意”或“不同意”，结果依本总纲第二十八条之规定执行。</div>
-                </div>
-                <div class="article"><span class="article-number">第九条</span>
-                    <div class="article-content">成员有权对管理员及群主的行为提出监督意见；有权对所受处罚向司法管理员提出书面申诉；有权向监察管理员举报任何违规行为。</div>
-                </div>
-                <div class="article"><span class="article-number">第十条</span>
-                    <div class="article-content">成员有权查阅群内所有非私密的公告、处罚记录、选举结果。管理员团队应每月公布一次管理透明度报告。</div>
-                </div>
-                <div class="article"><span class="article-number">第十一条</span>
-                    <div class="article-content">
-                        （一）成员有权在本群讨论、分享、创作本款第（二）项所定义之特定信息。<br>（二）特定信息，指正常社交中不常见但无恶意之内容，包括但不限于：怪异图片、冷门梗、抽象发言、实验性创作、非常规审美、小众兴趣话题、悬疑或虚构世界观设定等。明显违背中华人民共和国法律的内容，不在本款保护之列。<br>（三）成员不得以行使本条权利为名，实施刷屏、恶意恶心、人身攻击、泄密等行为，违者依相应条例处理。<br>（四）对特定信息不感兴趣之成员，应自行忽略或选择不看，不得以“恶心”“无聊”“看不懂”等纯主观理由，强制要求发言者停止。群聊无强制折叠功能，成员应自主管理个人阅读体验。<br>（五）对已造成普遍不适内容的拒绝权：若特定内容达到“严重令人不适”之程度（如排泄物、腐烂尸体特写、血腥残肢等），任何成员均有权明确表示拒绝（如“请别发了”“这个太过了，停一下”）。发言者收到明确拒绝后，应立即停止发送同类内容，否则按扰乱秩序处理。“严重令人不适”的判断，由司法管理员结合一般初中生的普遍接受标准综合裁量；争议显著时，以群内投票过半数成员的判断为准。<br>（六）预警义务与责任豁免：鼓励成员在发布可能引起强烈不适的内容前，添加预警标签（如【慎入】【猎奇】【心理准备】等）。添加预警标签后发布的内容，即使造成部分成员不适，不视为违规；未添加预警标签，且造成三人以上成员明确表示精神不适的，司法管理员可裁定责令发布者道歉或删除内容。
-                    </div>
-                </div>
-                <div class="chapter">第三章　成员基本义务</div>
-                <div class="article"><span class="article-number">第十二条</span>
-                    <div class="article-content">
-                        成员负有下列保密义务：<br>（一）不得以任何形式，向群外人员透露本群之存在、名称、二维码、成员名单等信息。<br>（二）不得向群外泄露群内任何聊天记录、文件、截图、链接等内容。<br>违反本义务者，一经核实，立即永久移出群聊并列入黑名单。其违规行为可在群内公告，以作警示。
-                    </div>
-                </div>
-                <div class="article"><span class="article-number">第十三条</span>
-                    <div class="article-content">
-                        成员负有维护正常交流秩序、反刷屏之义务：<br>（一）禁止连续发送五条及以上完全相同的内容。<br>（二）禁止连续发送十条及以上高度相似的内容。<br>违反者，按下列梯度处理（\(k\)为累计违规次数）：<br>·
-                        第\(1\)次：警告。<br>· 第\(2\)次：公开批评。<br>· 第\(3\)次：临时移出\(2\)小时。<br>· 第\(4\)次：临时移出\(4\)小时。<br>·
-                        第\(5\)次：临时移出\(8\)小时。<br>· 第\(6\)次：临时移出\(16\)小时。<br>·
-                        第\(7\)次及以后：临时移出\(2^{k-2}\)小时。<br>所有违规记录由司法管理员统一登记，跨次累计，不予定期清零。</div>
-                </div>
-                <div class="article"><span class="article-number">第十四条</span>
-                    <div class="article-content">
-                        任何成员不得在未经入群投票批准的情况下，将新人邀请入群。必须先经投票通过，方可发出入群邀请。违反者，依本总纲第十三条第三次违规之标准处理，并须立即将所邀请之新人移出。情节严重者，司法管理员可认定其为泄密共犯，处以永久移出。
-                    </div>
-                </div>
-                <div class="article"><span class="article-number">第十五条</span>
-                    <div class="article-content">
-                        （一）成员在群外被问及本群时，可得体回应，如“是同学间的小群，随便聊天”。本群鼓励成员保护社群隐私，但严禁任何强制、诱导成员为隐瞒本群存在而说谎的行为。<br>（二）任何成员不得主动向群外人员展示、传播本群群名、二维码、成员名单、聊天记录等具体信息。<br>（三）因主动或重大过失泄露本条第（二）项所指具体信息，造成严重后果的，依照《严重违规行为处理条例》中关于泄密的规定处理。
-                    </div>
-                </div>
-                <div class="chapter">第四章　管理团队</div>
-                <div class="section">第一节　群　主</div>
-                <div class="article"><span class="article-number">第十六条</span>
-                    <div class="article-content">
-                        群主是社群之最高协调者与最终裁定者，由社群创始人担任。群主行使下列职权：<br>（一）提议修改、解释本总纲，修改须依第三十一条程序通过。<br>（二）组织管理员选举，确认选举结果。<br>（三）在三位管理员之间就管理事务出现重大争议且无法调和时，做出最终裁定。<br>（四）宣布特别管理状态：当发生重大泄密、严重外部威胁、群聊秩序面临崩溃等紧急情况时，群主可宣布进入特别管理状态，并采取全员禁言、暂时解散群聊、重组群聊等措施。特别管理状态持续时间不得超过\(72\)小时，到期自动解除。如需延长，须经全体成员投票且赞成率达\(70\%\)以上。监察管理员在特别管理状态期间，有权随时要求群主说明情况。<br>（五）决定全面改选管理员团队，此项决定须经全体成员投票，赞成率达\(70\%\)以上方可通过。<br>（六）任命空缺之管理员职务，但被任命者须在下一次选举时经成员追认，否则自动离职。<br>（七）行使特别赦免权，其条件与程序依第十七条之规定。<br>（八）群主更替：群主可提名继任者，经七日公示后由全体成员投票，赞成率达\(60\%\)以上即通过。继任者须入群满三个月，且无泄密、人身攻击等严重违规记录。
-                    </div>
-                </div>
-                <div class="article"><span class="article-number">第十七条</span>
-                    <div class="article-content">
-                        群主享有对被处罚成员减轻或免除剩余处罚的特别赦免权。其启动条件为：<br>（一）被处罚人已真诚悔过，并在群内公开道歉，承诺不再违规；<br>（二）违规行为未造成严重后果（泄密、严重人身攻击等不在此列）；<br>（三）所受处罚执行时间已过半；<br>（四）已取得直接受影响者的公开谅解。<br>赦免须征求司法管理员及监察管理员的意见，并在群内公示。若有超过\(30\%\)的实际投票成员反对，监察管理员可提请复核。对同一人的同一违规行为，只能赦免一次。被赦免后七日内再次违规的，原赦免自动撤销，恢复剩余处罚并叠加新处罚。
-                    </div>
-                </div>
-                <div class="section">第二节　管理员</div>
-                <div class="article"><span class="article-number">第十八条</span>
-                    <div class="article-content">本群设管理员三人，分别行使行政、司法、监察职权。管理员由全体成员选举产生，任期六个月，连任不得超过两届。</div>
-                </div>
-                <div class="article"><span class="article-number">第十九条</span>
-                    <div class="article-content">
-                        行政管理员负责下列事务：<br>（一）执行本总纲及管理团队的决定；<br>（二）日常维护群聊秩序，对反刷屏等即时违规行为进行警告，执行《日常秩序维护办法》中的当场处理措施；<br>（三）发起新成员入群投票；<br>（四）发布群公告及通知；<br>（五）在紧急情况下，依程序对严重扰乱秩序者先行采取临时移出措施。<br>行政管理员周末应保持在线。确无法履职时，可将权限临时转交司法或监察管理员代行，最长不超过\(72\)小时，并须公开说明。
-                    </div>
-                </div>
-                <div class="article"><span class="article-number">第二十条</span>
-                    <div class="article-content">
-                        司法管理员负责下列事务：<br>（一）审理成员对警告、移出等处理决定不服所提起的申诉；<br>（二）审理《严重违规行为处理条例》所规定之泄密、人身攻击、造谣等案件；<br>（三）审理《群内纠纷调解办法》所涉之侵权与纠纷；<br>（四）统一登记、管理反刷屏等违规记录；<br>（五）裁决成员间因言论引发的、未达到严重违规程度的纠纷；<br>（六）对行政管理员采取的紧急措施进行合规性审查。<br>司法管理员的裁决为群内最终裁决。成员对裁决不服的，可向群主申请复核一次。群主可维持、撤销裁决或发回重审。
-                    </div>
-                </div>
-                <div class="article"><span class="article-number">第二十一条</span>
-                    <div class="article-content">
-                        监察管理员负责下列事务：<br>（一）监督群主、行政管理员、司法管理员遵守本总纲的情况；<br>（二）受理成员对管理员及群主行为的投诉，以及泄密行为的举报；<br>（三）调查管理员滥用职权的行为，并向群主提出处理建议；<br>（四）每月公布管理透明度报告；<br>（五）对群主发起不信任动议：动议由监察管理员提出，经另一名管理员同意，并交付全体成员投票，若投票成员中超过\(50\%\)表示同意，则群主应主动更替，依第十六条第八款之程序产生新群主。
-                    </div>
-                </div>
-                <div class="section">第三节　选举与更替</div>
-                <div class="article"><span class="article-number">第二十二条</span>
-                    <div class="article-content">首次管理员选举于本总纲公布后一周内举行，此后每六个月举行一次。选举采用匿名投票，得票前三名当选。票数相同时，由群主裁定。</div>
-                </div>
-                <div class="article"><span class="article-number">第二十三条</span>
-                    <div class="article-content">
-                        管理员在任期内有下列情形之一者，可由群主或\(20\%\)以上成员联名提议更替：<br>（一）严重违反本总纲；<br>（二）连续两周未能履行其应尽职责；<br>（三）滥用职权，造成恶劣影响。<br>更替动议须经全体成员投票，赞成率达到\(70\%\)者，即予更替。空缺由群主临时任命，并于下次选举时补选。
-                    </div>
-                </div>
-                <div class="section">第四节　分权与制衡</div>
-                <div class="article"><span class="article-number">第二十四条</span>
-                    <div class="article-content">
-                        行政管理员不得参与具体案件的司法审理。司法管理员不得擅自执行处罚，所有处罚决定的执行权归行政管理员。监察管理员不得直接修改或撤销行政、司法决定，其监督意见须向群主提出，或通过发起不信任动议的方式行使。
-                    </div>
-                </div>
-                <div class="chapter">第五章　临时移出措施的执行与复核</div>
-                <div class="article"><span class="article-number">第二十五条</span>
-                    <div class="article-content">
-                        对于正在发生的严重扰乱秩序行为（如恶意刷屏、持续性人身攻击），行政管理员有权在不经事先投票的情况下，先行将行为人临时移出。移出后，执行人须在\(24\)小时内在群内发起复核投票，说明理由并举证。投票选项为“同意移出”与“不同意移出”。投票时长为\(24\)小时，仅统计实际投票者。
-                    </div>
-                </div>
-                <div class="article"><span class="article-number">第二十六条</span>
-                    <div class="article-content">
-                        若“不同意移出”票数超过实际投票人数的\(60\%\)，则移出无效，被移出人应立即恢复入群。此时，执行移出的管理员须承担误判责任：立即解除其管理员职务，三十日内不得担任任何管理员，并丧失下届被选举权。<br>若“不同意移出”票数未超过\(60\%\)，则移出有效，此决定为最终决定，不得再申诉。
-                    </div>
-                </div>
-                <div class="article"><span class="article-number">第二十七条</span>
-                    <div class="article-content">群主宣布进入特别管理状态后，为恢复秩序而采取的集体解散或重组措施，不受第二十五、二十六条限制。</div>
-                </div>
-                <div class="chapter">第六章　新成员入群</div>
-                <div class="article"><span class="article-number">第二十八条</span>
-                    <div class="article-content">
-                        新人申请入群，须通过以下任一通道：<br>（一）管理员通道：三名管理员一致同意。<br>（二）成员通道：在周末连续\(24\)小时的投票窗口内，同意票超过实际投票人数之半数。同时，参与投票人数须不少于群成员总数之\(20\%\)，或不少于\(5\)人（取人数较少者）。<br>投票由行政管理员发起，须公示候选人之昵称、来源及入群理由。投票通过后，方可邀请入群。未通过者，三十日后方可重新申请。
-                    </div>
-                </div>
-                <div class="chapter">第七章　成员退出</div>
-                <div class="article"><span class="article-number">第二十九条</span>
-                    <div class="article-content">成员可自愿退群。退群前建议告知管理员。退群后三十日内不得重新申请入群。退群不免除其退群前已发生违规行为的责任。</div>
-                </div>
-                <div class="chapter">第八章　群名、群歌、群徽</div>
-                <div class="article"><span class="article-number">第三十条</span>
-                    <div class="article-content">本群之群名、群歌、群徽由全体成员投票选定。一经确定，即受本总纲保护，任何成员不得擅自更改或恶意篡改。</div>
-                </div>
-                <div class="chapter">第九章　附　则</div>
-                <div class="article"><span class="article-number">第三十一条</span>
-                    <div class="article-content">本总纲之修改，须经群主提议，或\(10\%\)以上成员联名提出，经过至少三日公示与投票，且赞成票达到全体成员之\(70\%\)以上，方可通过。
-                    </div>
-                </div>
-                <div class="article"><span class="article-number">第三十二条</span>
-                    <div class="article-content">本总纲自公布之日起施行。</div>
-                </div>
-                <div class="doc-end">（社群自治总纲　完）</div>
-            </div>
-        </div>
-
-        <!-- 严重违规行为处理条例 - 完整内容 -->
-        <div class="content-view" id="docPenal">
-            <button class="back-btn" data-action="backToFolder"><span class="back-arrow">←</span> 返回文件列表</button>
-            <div class="doc-body">
-                <div class="doc-title">严重违规行为处理条例</div>
-                <div class="doc-subtitle">（依据《社群自治总纲》第四条制定）</div>
-                <div class="chapter">第一编　总　则</div>
-                <div class="article"><span class="article-number">第一条</span>
-                    <div class="article-content">为处理群内最严重的违规行为，维护群聊安全，根据《社群自治总纲》，制定本条例。</div>
-                </div>
-                <div class="article"><span class="article-number">第二条</span>
-                    <div class="article-content">本条例所称“严重违规行为”，仅指群内严重违反基本准则的行为，适用群内处理措施，不涉及现实法律后果。</div>
-                </div>
-                <div class="article"><span class="article-number">第三条</span>
-                    <div class="article-content">处理严重违规行为，须以本条例明文规定为依据；本条例无明文规定的，不得认定为严重违规行为并施以处理。</div>
-                </div>
-                <div class="article"><span class="article-number">第四条</span>
-                    <div class="article-content">对任何人的严重违规行为，在处理上一律平等。</div>
-                </div>
-                <div class="article"><span class="article-number">第五条</span>
-                    <div class="article-content">
-                        处理措施种类如下：<br>（一）警告、公开训诫；<br>（二）限制群内部分权利（如暂停投票权、发言权）；<br>（三）临时移出群聊（\(12\)小时、\(24\)小时、\(48\)小时、\(72\)小时、\(7\)日）；<br>（四）永久移出并列入黑名单；<br>（五）附加措施：公开道歉、完成一项对群聊有益的志愿服务（如整理群文件、编写群规宣传文案）。
-                    </div>
-                </div>
-                <div class="article"><span class="article-number">第六条</span>
-                    <div class="article-content">故意违规，从重处理；过失违规，从轻处理。三十日内再次违规者，在原处理基础上加重\(50\%\)。</div>
-                </div>
-                <div class="article"><span class="article-number">第七条</span>
-                    <div class="article-content">
-                        从重情节：<br>（一）累犯；<br>（二）共同违规中的主导者；<br>（三）违规对象为管理员、群主或新入群成员；<br>（四）在群主宣布的特别管理状态期间违规；<br>（五）教唆或胁迫他人违规。
-                    </div>
-                </div>
-                <div class="article"><span class="article-number">第八条</span>
-                    <div class="article-content">
-                        从轻、减轻或免除处理情节：<br>（一）主动向管理员坦白并如实陈述；<br>（二）检举他人严重违规行为，经查证属实；<br>（三）取得直接受影响者的书面或公开谅解；<br>（四）初次违规且情节轻微；<br>（五）因遭受严重挑衅或霸凌而被动反击。
-                    </div>
-                </div>
-                <div class="article"><span class="article-number">第九条</span>
-                    <div class="article-content">
-                        二人以上共同故意实施严重违规行为者，按其在行为中的作用分别处理。主导者从重处理，参与者从轻或减轻处理。教唆他人者，按主导者处理。被胁迫参与者，应减轻或免除处理。</div>
-                </div>
-                <div class="article"><span class="article-number">第十条</span>
-                    <div class="article-content">在违规过程中自动放弃的，可免除处理；因意志以外原因未能得逞的，可从轻处理。</div>
-                </div>
-                <div class="article"><span class="article-number">第十一条</span>
-                    <div class="article-content">因过失违规或一般情节之行为被处理后，连续三个月无任何违规的，可向司法管理员申请消除该次记录。记录消除后，不影响未来违规时首次违规的认定。
-                    </div>
-                </div>
-                <div class="chapter">第二编　分　则</div>
-                <div class="section">第四章　危害社群安全行为</div>
-                <div class="article"><span class="article-number">第十二条</span>
-                    <div class="article-content">
-                        故意违反保密义务，将群内聊天记录、群名、二维码等泄露给群外人，且造成下列后果之一的，构成故意泄密：<br>（一）导致三名以上成员退群；<br>（二）导致群主被迫解散或重组群聊；<br>（三）导致成员在现实中受到较大影响（如被老师批评、被家长严厉管教）；<br>（四）泄露内容被大范围传播。<br>处理：永久移出并列入黑名单。<br>泄露少量非核心信息（如单张不重要表情包、无上下文的一句话截图），且未造成上述后果的，不构成本条行为，依《日常秩序维护办法》处理。
-                    </div>
-                </div>
-                <div class="article"><span class="article-number">第十三条</span>
-                    <div class="article-content">
-                        因疏忽大意或过于自信，过失导致泄密，并造成第十二条所列严重后果的，处公开道歉并临时移出\(72\)小时。过失泄密后主动报告、积极消除影响并取得全体成员谅解的，可免除临时移出，改为公开批评并观察\(7\)日。
-                    </div>
-                </div>
-                <div class="article"><span class="article-number">第十四条</span>
-                    <div class="article-content">未经入群投票批准，私自邀请新成员入群累计达两次以上者，处临时移出\(48\)小时；导致被邀请者泄密或破坏群内秩序的，处永久移出。</div>
-                </div>
-                <div class="article"><span class="article-number">第十五条</span>
-                    <div class="article-content">盗用管理员头像或昵称，或自称管理员、群主以发布虚假指令、威胁他人、骗取信息者，处临时移出\(48\)小时；造成恐慌或实际损害的，处永久移出。
-                    </div>
-                </div>
-                <div class="section">第五章　侵犯人身权利行为</div>
-                <div class="article"><span class="article-number">第十六条</span>
-                    <div class="article-content">
-                        使用恶劣侮辱性词汇、恶毒诅咒、公开他人真实姓名班级照片、威胁现实安全等行为，构成人身攻击。<br>一般情节：公开道歉并临时移出\(24\)小时。<br>从重情节：<br>（一）使用脏话侮辱对方父母等直系亲属的，无论有无其他攻击内容，均视为严重人身攻击，处公开道歉并临时移出\(72\)小时，同时限制投票权\(30\)天。<br>（二）攻击三人以上，或导致受害人退群的，处永久移出。<br>（三）攻击管理员或群主的，处永久移出。<br>（四）攻击行为在群内引发严重对立与分裂的，处永久移出。
-                    </div>
-                </div>
-                <div class="article"><span class="article-number">第十七条</span>
-                    <div class="article-content">
-                        捏造虚假事实恶意散布，或明知是谣言仍传播，且造成下列后果之一的，构成造谣传谣：<br>（一）导致两名以上成员之间爆发冲突；<br>（二）导致受害者被三人以上孤立、嘲笑或排挤；<br>（三）导致受害者主动退群；<br>（四）导致现实班级关系紧张。<br>处理：公开道歉并临时移出\(7\)日，同时限制投票权\(30\)日。情节特别恶劣者，处永久移出。主动承认错误、公开澄清并取得受害者谅解的，从轻处理（临时移出\(3\)日，不限制投票权）。<br>传播谣言但未造成上述后果的，不构成本条行为，依《日常秩序维护办法》处理。
-                    </div>
-                </div>
-                <div class="section">第六章　扰乱管理秩序行为</div>
-                <div class="article"><span class="article-number">第十八条</span>
-                    <div class="article-content">多次故意捏造事实举报他人，浪费管理资源，情节严重的，处临时移出\(24\)小时，并公开训诫。</div>
-                </div>
-                <div class="doc-end">（严重违规行为处理条例　完）</div>
-            </div>
+            <span class="arrow">›</span>
         </div>
     </div>
-    <div class="floating-toc" id="floatingToc">
-        <h4>📑 章节导航</h4>
-        <ul class="toc-list" id="tocList"></ul>
+
+    <!-- 文件列表（根本法+配套规则） -->
+    <div class="list-view hidden" id="listFolder">
+        <button class="back-btn" data-action="backToHome"><span>←</span> 返回首页</button>
+        <div class="list-card" data-action="openDoc" data-doc="general">
+            <div class="icon icon-law">⚖️</div>
+            <div class="card-info"><div class="card-title">社群自治总纲 <span class="read-badge" id="badgeGeneral">未读</span></div><div class="card-meta">根本法 · 最高效力</div></div>
+            <span class="arrow">›</span>
+        </div>
+        <div class="list-card" data-action="openDoc" data-doc="penal">
+            <div class="icon icon-rule">📜</div>
+            <div class="card-info"><div class="card-title">严重违规行为处理条例 <span class="read-badge" id="badgePenal">未读</span></div><div class="card-meta">泄密/人身攻击/造谣</div></div>
+            <span class="arrow">›</span>
+        </div>
+        <div class="list-card" data-action="openDoc" data-doc="daily">
+            <div class="icon icon-rule">📋</div>
+            <div class="card-info"><div class="card-title">日常秩序维护办法 <span class="read-badge" id="badgeDaily">未读</span></div><div class="card-meta">反刷屏 · 特定信息管理</div></div>
+            <span class="arrow">›</span>
+        </div>
+        <div class="list-card" data-action="openDoc" data-doc="election">
+            <div class="icon icon-elect">🗳️</div>
+            <div class="card-info"><div class="card-title">管理员选举与议事规则 <span class="read-badge" id="badgeElection">未读</span></div><div class="card-meta">选举/更替/分权制衡</div></div>
+            <span class="arrow">›</span>
+        </div>
+        <div class="list-card" data-action="openDoc" data-doc="member">
+            <div class="icon icon-law">🚪</div>
+            <div class="card-info"><div class="card-title">成员入群与退出规则 <span class="read-badge" id="badgeMember">未读</span></div><div class="card-meta">入群投票 · 退出程序</div></div>
+            <span class="arrow">›</span>
+        </div>
+        <div class="list-card" data-action="openDoc" data-doc="emergency">
+            <div class="icon icon-elect">⚠️</div>
+            <div class="card-info"><div class="card-title">紧急状态与临时处置条例 <span class="read-badge" id="badgeEmergency">未读</span></div><div class="card-meta">特别管理状态 · 紧急移出</div></div>
+            <span class="arrow">›</span>
+        </div>
+        <div class="agree-footer">
+            <button class="agree-btn" id="agreeBtn" disabled>我已阅读并同意</button>
+            <div class="agree-hint" id="agreeHint">请阅读全部文件</div>
+        </div>
     </div>
 
-    <script>
-        (function () {
-            const FILES = {
-                general: { id: 'general', version: '2026-05-30' },
-                penal: { id: 'penal', version: '2026-05-30' }
-            };
-            const STORAGE_READ_KEY = 'reading_status_v2';
-            const STORAGE_AGREE_KEY = 'agree_status_v2';
+    <!-- ========= 文档内容：社群自治总纲（根本法） ========= -->
+    <div class="content-view" id="docGeneral">
+        <button class="back-btn" data-action="backToFolder"><span>←</span> 返回文件列表</button>
+        <div class="doc-body">
+            <div class="doc-title">社群自治总纲</div>
+            <div class="doc-subtitle">（根本法 · 2026年5月29日经全体成员投票通过）</div>
+            <div class="chapter">序　言</div>
+            <div class="article"><span class="article-number"></span><div class="article-content">本群全体成员，为保障自由、有序、安全的交流环境，依据自愿、平等、互信原则，制定本总纲。本总纲为群内一切制度之根本依据，任何配套规则不得与之抵触。</div></div>
+            <div class="chapter">第一章　总　纲</div>
+            <div class="article"><span class="article-number">第一条</span><div class="article-content">本群是由江阴初级中学初二28班部分同学自愿结成的网络社群，独立于现实学校管理，仅供成员课余交流、分享趣闻、互助学习。</div></div>
+            <div class="article"><span class="article-number">第二条</span><div class="article-content">本群以“完全信赖、自由表达、相互尊重、保守秘密”为核心准则。鼓励成员在不违反法律和公序良俗的前提下发表各类内容，严禁网络暴力、人身攻击和恶意造谣。</div></div>
+            <div class="article"><span class="article-number">第三条</span><div class="article-content">本群实行在群主协调下的管理员分工负责制。管理团队由行政管理员、司法管理员、监察管理员各一人组成，依本总纲和配套规则行使职权。</div></div>
+            <div class="article"><span class="article-number">第四条</span><div class="article-content">本群规则仅适用于群内虚拟空间，不得与中华人民共和国法律、法规及公序良俗相抵触。</div></div>
+            <div class="article"><span class="article-number">第五条</span><div class="article-content">本总纲的修改，须经群主提议或10%以上成员联名，经至少三日公示，且赞成票达到全体成员之70%以上方可通过。</div></div>
+            <div class="chapter">第二章　成员基本权利</div>
+            <div class="article"><span class="article-number">第六条</span><div class="article-content">成员享有在总纲和配套规则允许范围内自由发表观点、分享内容的权利。</div></div>
+            <div class="article"><span class="article-number">第七条</span><div class="article-content">入群时间达七日的正式成员，享有选举权和被选举权。具体选举办法由《管理员选举与议事规则》规定。</div></div>
+            <div class="article"><span class="article-number">第八条</span><div class="article-content">成员有权对管理员及群主的行为提出监督意见，有权对所受处罚向司法管理员申诉，有权向监察管理员举报违规行为。</div></div>
+            <div class="article"><span class="article-number">第九条</span><div class="article-content">成员有权查阅群内非私密的公告、处罚记录、选举结果。管理员团队应定期公布管理透明度报告。</div></div>
+            <div class="article"><span class="article-number">第十条</span><div class="article-content">成员有权在本群讨论、分享、创作非恶意的特定信息（包括怪异图片、冷门梗、抽象发言等）。对特定信息不感兴趣的成员，应自行忽略，不得以纯主观理由强制要求发言者停止。具体保障和限制办法由《日常秩序维护办法》规定。</div></div>
+            <div class="chapter">第三章　成员基本义务</div>
+            <div class="article"><span class="article-number">第十一条</span><div class="article-content">成员负有保密义务：不得向群外人员透露本群存在、名称、二维码、成员名单等信息，不得泄露群内任何聊天记录、文件、截图等。违反者依《严重违规行为处理条例》处理。</div></div>
+            <div class="article"><span class="article-number">第十二条</span><div class="article-content">成员负有维护正常交流秩序的义务，不得刷屏、恶意攻击、散布谣言。具体行为标准和处罚由《日常秩序维护办法》《严重违规行为处理条例》规定。</div></div>
+            <div class="article"><span class="article-number">第十三条</span><div class="article-content">未经入群投票批准，成员不得私自邀请新人入群。违反者依配套规则处理。</div></div>
+            <div class="chapter">第四章　管理组织</div>
+            <div class="article"><span class="article-number">第十四条</span><div class="article-content">群主是社群的最高协调者与最终裁定者，行使下列职权：<br>（一）提议修改本总纲；（二）组织管理员选举，确认选举结果；（三）在管理员间出现重大争议时做出最终裁定；（四）依法宣布特别管理状态；（五）行使特别赦免权；（六）提名继任群主。群主更替程序由《管理员选举与议事规则》规定。</div></div>
+            <div class="article"><span class="article-number">第十五条</span><div class="article-content">行政管理员负责执行管理决定、维护日常秩序、发起入群投票等事务。司法管理员负责审理申诉、登记违规记录、裁决纠纷。监察管理员负责监督履职、受理投诉、发起不信任动议。管理员的选举、任期、更替、分权制衡等具体制度，由《管理员选举与议事规则》规定。</div></div>
+            <div class="chapter">第五章　附　则</div>
+            <div class="article"><span class="article-number">第十六条</span><div class="article-content">本总纲施行后，原有群规与本总纲抵触者无效。群主应组织制定配套规则：《严重违规行为处理条例》《日常秩序维护办法》《管理员选举与议事规则》《成员入群与退出规则》《紧急状态与临时处置条例》。</div></div>
+            <div class="article"><span class="article-number">第十七条</span><div class="article-content">本总纲自公布之日起施行。</div></div>
+            <div class="doc-end">（社群自治总纲 · 完）</div>
+        </div>
+    </div>
 
-            function getStoredReadStatus() { let s = localStorage.getItem(STORAGE_READ_KEY); return s ? JSON.parse(s) : {}; }
-            function saveReadStatus(s) { localStorage.setItem(STORAGE_READ_KEY, JSON.stringify(s)); }
-            function getStoredAgreeStatus() { let s = localStorage.getItem(STORAGE_AGREE_KEY); return s ? JSON.parse(s) : null; }
-            function saveAgreeStatus(s) { localStorage.setItem(STORAGE_AGREE_KEY, JSON.stringify(s)); }
-            function clearAgreeStatus() { localStorage.removeItem(STORAGE_AGREE_KEY); }
+    <!-- 严重违规行为处理条例 -->
+    <div class="content-view" id="docPenal">
+        <button class="back-btn" data-action="backToFolder"><span>←</span> 返回文件列表</button>
+        <div class="doc-body">
+            <div class="doc-title">严重违规行为处理条例</div>
+            <div class="doc-subtitle">（依据《社群自治总纲》第四条、第十一条制定）</div>
+            <div class="chapter">第一编　总　则</div>
+            <div class="article"><span class="article-number">第一条</span><div class="article-content">为处理群内最严重的违规行为，维护社群安全，根据《社群自治总纲》，制定本条例。</div></div>
+            <div class="article"><span class="article-number">第二条</span><div class="article-content">本条例所称“严重违规行为”，指严重违反基本准则、足以危害社群存续或成员人格尊严的行为。</div></div>
+            <div class="article"><span class="article-number">第三条</span><div class="article-content">处理措施种类：警告/公开训诫；限制部分权利；临时移出（12h/24h/48h/72h/7日）；永久移出并列入黑名单；附加措施（公开道歉、志愿服务）。</div></div>
+            <div class="article"><span class="article-number">第四条</span><div class="article-content">故意违规从重处理，过失从轻。三十日内再次违规加重50%。从重情节：累犯、共同违规主导者、违规对象为管理员/群主、特别管理状态期间违规、教唆他人。从轻情节：主动坦白、检举立功、取得谅解、初次轻微、遭受挑衅后被动反击。</div></div>
+            <div class="chapter">第二编　分　则</div>
+            <div class="article"><span class="article-number">第五条</span><div class="article-content">故意泄露群内聊天记录、群名、二维码等给群外人，造成下列后果之一，永久移出并列入黑名单：（一）三名以上成员退群；（二）群主被迫解散或重组群聊；（三）成员现实中受较大影响；（四）内容大范围传播。泄露少量非核心信息未造成后果的，依《日常秩序维护办法》处理。</div></div>
+            <div class="article"><span class="article-number">第六条</span><div class="article-content">过失泄密造成严重后果的，公开道歉+临时移出72小时。主动报告并取得谅解的，可免除移出。</div></div>
+            <div class="article"><span class="article-number">第七条</span><div class="article-content">未经入群投票批准，私自邀请新人累计达两次以上，临时移出48小时；导致被邀请者泄密或破坏秩序的，永久移出。</div></div>
+            <div class="article"><span class="article-number">第八条</span><div class="article-content">盗用管理员头像/昵称或冒充管理员发布虚假指令，临时移出48小时；造成恐慌或实际损害的，永久移出。</div></div>
+            <div class="article"><span class="article-number">第九条</span><div class="article-content">人身攻击：一般情节公开道歉+临时移出24小时。侮辱对方直系亲属的，公开道歉+临时移出72小时并限制投票权30日；攻击三人以上或导致受害人退群、攻击管理员/群主的，永久移出。</div></div>
+            <div class="article"><span class="article-number">第十条</span><div class="article-content">造谣传谣造成严重后果（成员冲突、被排挤、退群等），公开道歉+临时移出7日并限制投票权30日；特别恶劣者永久移出。主动澄清并取得谅解的从轻处理。</div></div>
+            <div class="article"><span class="article-number">第十一条</span><div class="article-content">多次捏造事实举报浪费管理资源的，临时移出24小时并公开训诫。</div></div>
+            <div class="doc-end">（严重违规行为处理条例 · 完）</div>
+        </div>
+    </div>
 
-            function validateVersionsAndReset() {
-                let stored = getStoredReadStatus();
-                let changed = false, anyMismatch = false;
-                for (let [id, info] of Object.entries(FILES)) {
-                    let storedVer = stored[id]?.version;
-                    if (storedVer !== info.version) {
-                        stored[id] = { version: info.version, read: false };
-                        changed = true;
-                        anyMismatch = true;
-                    }
-                }
-                if (changed) saveReadStatus(stored);
-                if (anyMismatch) {
-                    let agree = getStoredAgreeStatus();
-                    if (agree) {
-                        let allMatch = true;
-                        for (let [id, info] of Object.entries(FILES)) {
-                            if (agree.agreedVersion?.[id] !== info.version) { allMatch = false; break; }
-                        }
-                        if (!allMatch) clearAgreeStatus();
-                    }
-                }
-                return stored;
+    <!-- 日常秩序维护办法 -->
+    <div class="content-view" id="docDaily">
+        <button class="back-btn" data-action="backToFolder"><span>←</span> 返回文件列表</button>
+        <div class="doc-body">
+            <div class="doc-title">日常秩序维护办法</div>
+            <div class="doc-subtitle">（依据《社群自治总纲》第六条、第十二条制定）</div>
+            <div class="article"><span class="article-number">第一条</span><div class="article-content">为维护日常交流秩序，处理尚未达到严重违规程度的行为，制定本办法。</div></div>
+            <div class="article"><span class="article-number">第二条</span><div class="article-content">禁止连续发送5条及以上完全相同内容，或10条及以上高度相似内容（刷屏）。违规按累计次数梯度处理：\(k=1\)警告；\(k=2\)公开批评；\(k=3\)移出2h；\(k=4\)移出4h；\(k=5\)移出8h；\(k=6\)移出16h；\(k\ge7\)移出\(2^{k-2}\)小时。司法管理员统一登记跨次累计。</div></div>
+            <div class="article"><span class="article-number">第三条</span><div class="article-content">鼓励发布可能引起强烈不适的内容前添加预警标签（【慎入】【猎奇】）。添加预警后即使造成不适不视为违规。未添加预警且三人以上明确表示精神不适的，可裁定责令道歉或删除内容。</div></div>
+            <div class="article"><span class="article-number">第四条</span><div class="article-content">任何成员有权明确拒绝不适内容（“请别发了”），发言者收到拒绝后应立即停止，否则按扰乱秩序处理。</div></div>
+            <div class="article"><span class="article-number">第五条</span><div class="article-content">传播谣言未造成严重后果的，责令删除并公开提醒；泄露少量非核心信息（单张表情包等）警告并责令删除。</div></div>
+            <div class="doc-end">（日常秩序维护办法 · 完）</div>
+        </div>
+    </div>
+
+    <!-- 管理员选举与议事规则 -->
+    <div class="content-view" id="docElection">
+        <button class="back-btn" data-action="backToFolder"><span>←</span> 返回文件列表</button>
+        <div class="doc-body">
+            <div class="doc-title">管理员选举与议事规则</div>
+            <div class="doc-subtitle">（依据《社群自治总纲》第七条、第十四条、第十五条制定）</div>
+            <div class="article"><span class="article-number">第一条</span><div class="article-content">首次选举于总纲公布后一周内举行，此后每六个月一次。匿名投票，得票前三名分别担任行政、司法、监察管理员。票数相同时群主裁定。</div></div>
+            <div class="article"><span class="article-number">第二条</span><div class="article-content">管理员任期六个月，连任不得超过两届。</div></div>
+            <div class="article"><span class="article-number">第三条</span><div class="article-content">管理员有下列情形可被更替：严重违反总纲、连续两周不履职、滥用职权造成恶劣影响。更替动议由群主或20%成员联名，投票赞成70%即予更替。空缺由群主临时任命，下次选举补选。</div></div>
+            <div class="article"><span class="article-number">第四条</span><div class="article-content">监察管理员可发起对群主的不信任动议（经另一管理员同意），投票成员超50%同意则群主应主动更替。</div></div>
+            <div class="article"><span class="article-number">第五条</span><div class="article-content">群主更替：提名继任者，公示7日投票赞成60%以上通过。继任者须入群满三个月且无严重违规记录。</div></div>
+            <div class="article"><span class="article-number">第六条</span><div class="article-content">特别赦免权：被处罚人已公开道歉、非泄密/严重人身攻击、处罚执行过半、取得受害人谅解，群主可赦免。须公示，超30%投票成员反对时可提请复核。</div></div>
+            <div class="article"><span class="article-number">第七条</span><div class="article-content">分权制衡：行政管理员不参与司法审理；司法管理员不擅自执行处罚（执行归行政）；监察管理员不得直接修改行政/司法决定，监督意见向群主提出或不信任动议。</div></div>
+            <div class="doc-end">（管理员选举与议事规则 · 完）</div>
+        </div>
+    </div>
+
+    <!-- 成员入群与退出规则 -->
+    <div class="content-view" id="docMember">
+        <button class="back-btn" data-action="backToFolder"><span>←</span> 返回文件列表</button>
+        <div class="doc-body">
+            <div class="doc-title">成员入群与退出规则</div>
+            <div class="doc-subtitle">（依据《社群自治总纲》第八条、第十三条制定）</div>
+            <div class="article"><span class="article-number">第一条</span><div class="article-content">新人申请入群通道：①三名管理员一致同意；②周末连续24小时投票窗口，同意票超实际投票人数半数，且参与投票人数不少于群成员总数20%或不少于5人（取少者）。由行政管理员公示候选人信息并发起投票。</div></div>
+            <div class="article"><span class="article-number">第二条</span><div class="article-content">投票通过后方可邀请入群。未通过者三十日后方可重新申请。</div></div>
+            <div class="article"><span class="article-number">第三条</span><div class="article-content">成员可自愿退群，建议告知管理员。退群后三十日内不得重新申请。退群不免除退群前已发生的违规责任。</div></div>
+            <div class="article"><span class="article-number">第四条</span><div class="article-content">永久移出并列入黑名单者，不得再次入群。</div></div>
+            <div class="doc-end">（成员入群与退出规则 · 完）</div>
+        </div>
+    </div>
+
+    <!-- 紧急状态与临时处置条例 -->
+    <div class="content-view" id="docEmergency">
+        <button class="back-btn" data-action="backToFolder"><span>←</span> 返回文件列表</button>
+        <div class="doc-body">
+            <div class="doc-title">紧急状态与临时处置条例</div>
+            <div class="doc-subtitle">（依据《社群自治总纲》第十四条第四项制定）</div>
+            <div class="article"><span class="article-number">第一条</span><div class="article-content">发生重大泄密、严重外部威胁、秩序崩溃等紧急情况，群主可宣布特别管理状态，采取全员禁言、暂时解散或重组等措施。持续时间不超过72小时，到期自动解除。需延长须投票赞成70%以上。</div></div>
+            <div class="article"><span class="article-number">第二条</span><div class="article-content">对正在发生的严重扰乱秩序行为（恶意刷屏、持续性人身攻击），行政管理员可不经投票先行临时移出。移出后24小时内在群内发起复核投票，说明理由并举证。投票时长24小时。</div></div>
+            <div class="article"><span class="article-number">第三条</span><div class="article-content">若“不同意移出”票数超过实际投票人数60%，移出无效，被移出人立即恢复入群。执行移出的管理员承担误判责任：解除职务，三十日内不得担任管理员并丧失下届被选举权。</div></div>
+            <div class="article"><span class="article-number">第四条</span><div class="article-content">若“不同意移出”票数未超过60%，移出有效，为最终决定，不得申诉。</div></div>
+            <div class="article"><span class="article-number">第五条</span><div class="article-content">群主宣布特别管理状态后为恢复秩序采取的集体解散/重组措施，不受第二条、第三条限制。</div></div>
+            <div class="doc-end">（紧急状态与临时处置条例 · 完）</div>
+        </div>
+    </div>
+</div>
+
+<div class="floating-toc" id="floatingToc"><h4>📑 章节导航</h4><ul class="toc-list" id="tocList"></ul></div>
+
+<script>
+(function(){
+    const FILES = {
+        general:{id:'general',version:'2026-05-29',name:'社群自治总纲'},
+        penal:{id:'penal',version:'2026-05-29',name:'严重违规行为处理条例'},
+        daily:{id:'daily',version:'2026-05-29',name:'日常秩序维护办法'},
+        election:{id:'election',version:'2026-05-29',name:'管理员选举与议事规则'},
+        member:{id:'member',version:'2026-05-29',name:'成员入群与退出规则'},
+        emergency:{id:'emergency',version:'2026-05-29',name:'紧急状态与临时处置条例'}
+    };
+    const STORAGE_READ_KEY = 'reading_status_v6';
+    const STORAGE_AGREE_KEY = 'agree_status_v6';
+
+    function getStoredRead(){ let s=localStorage.getItem(STORAGE_READ_KEY); return s?JSON.parse(s):{}; }
+    function saveReadStatus(s){ localStorage.setItem(STORAGE_READ_KEY,JSON.stringify(s)); }
+    function getStoredAgree(){ let s=localStorage.getItem(STORAGE_AGREE_KEY); return s?JSON.parse(s):null; }
+    function saveAgreeStatus(s){ localStorage.setItem(STORAGE_AGREE_KEY,JSON.stringify(s)); }
+    function clearAgree(){ localStorage.removeItem(STORAGE_AGREE_KEY); }
+
+    function validateVersions(){
+        let stored=getStoredRead();
+        let changed=false;
+        for(let [id,info] of Object.entries(FILES)){
+            if(stored[id]?.version !== info.version){
+                stored[id]={version:info.version,read:false};
+                changed=true;
             }
-
-            function isFileRead(id) { let s = getStoredReadStatus(); return s[id]?.read === true; }
-            function markFileRead(id) { let s = getStoredReadStatus(); s[id] = { version: FILES[id].version, read: true }; saveReadStatus(s); }
-            function allFilesRead() { for (let id of Object.keys(FILES)) if (!isFileRead(id)) return false; return true; }
-            function isAgreed() {
-                let a = getStoredAgreeStatus();
-                if (!a) return false;
-                for (let [id, info] of Object.entries(FILES)) if (a.agreedVersion?.[id] !== info.version) return false;
-                return true;
+        }
+        if(changed) saveReadStatus(stored);
+        let agree=getStoredAgree();
+        if(agree){
+            let allMatch=true;
+            for(let id of Object.keys(FILES)){
+                if(agree.agreedVersion?.[id] !== FILES[id].version) allMatch=false;
             }
-            function setAgreed() {
-                let versionMap = {}; for (let [id, info] of Object.entries(FILES)) versionMap[id] = info.version;
-                saveAgreeStatus({ agreedVersion: versionMap, timestamp: Date.now() });
+            if(!allMatch) clearAgree();
+        }
+        return stored;
+    }
+    function isFileRead(id){ let s=getStoredRead(); return !!s[id]?.read; }
+    function markFileRead(id){
+        let s=getStoredRead();
+        s[id]={version:FILES[id].version,read:true};
+        saveReadStatus(s);
+        updateUI();
+    }
+    function allFilesRead(){ return Object.keys(FILES).every(id=>isFileRead(id)); }
+    function isAgreed(){
+        let a=getStoredAgree();
+        if(!a) return false;
+        for(let id of Object.keys(FILES)) if(a.agreedVersion?.[id] !== FILES[id].version) return false;
+        return true;
+    }
+    function setAgreed(){
+        let verMap={};
+        for(let id of Object.keys(FILES)) verMap[id]=FILES[id].version;
+        saveAgreeStatus({agreedVersion:verMap,timestamp:Date.now()});
+        updateUI();
+    }
+
+    function updateUI(){
+        for(let id of Object.keys(FILES)){
+            let badge=document.getElementById(`badge${id.charAt(0).toUpperCase()+id.slice(1)}`);
+            if(badge){
+                let read=isFileRead(id);
+                badge.textContent=read?'已读':'未读';
+                badge.className=read?'read-badge read':'read-badge unread';
             }
-            function formatAgreeTime(ts) { let d = new Date(ts); return `${d.getFullYear()}年${d.getMonth() + 1}月${d.getDate()}日 ${d.getHours().toString().padStart(2, '0')}:${d.getMinutes().toString().padStart(2, '0')}`; }
-
-            const breadcrumb = document.getElementById('breadcrumb');
-            const listHome = document.getElementById('listHome');
-            const listFolder = document.getElementById('listFolder');
-            const docGeneral = document.getElementById('docGeneral');
-            const docPenal = document.getElementById('docPenal');
-            const floatingToc = document.getElementById('floatingToc');
-            const tocListEl = document.getElementById('tocList');
-            const badgeGeneral = document.getElementById('badgeGeneral');
-            const badgePenal = document.getElementById('badgePenal');
-            const agreeBtn = document.getElementById('agreeBtn');
-            const agreeHint = document.getElementById('agreeHint');
-
-            let currentView = 'home', scrollHandler = null, currentTocItems = [];
-
-            function updateUI() {
-                let generalRead = isFileRead('general'), penalRead = isFileRead('penal');
-                if (badgeGeneral) { badgeGeneral.textContent = generalRead ? '已读' : '未读'; badgeGeneral.className = generalRead ? 'read-badge read' : 'read-badge unread'; }
-                if (badgePenal) { badgePenal.textContent = penalRead ? '已读' : '未读'; badgePenal.className = penalRead ? 'read-badge read' : 'read-badge unread'; }
-                let allRead = allFilesRead();
-                let agreed = isAgreed();
-                if (agreed) {
-                    agreeBtn.disabled = true; agreeBtn.classList.remove('active'); agreeBtn.textContent = '✓ 已同意';
-                    let a = getStoredAgreeStatus(); let timeStr = a ? formatAgreeTime(a.timestamp) : '未知时间';
-                    agreeHint.textContent = `您已于 ${timeStr} 同意`;
-                } else {
-                    if (allRead) { agreeBtn.disabled = false; agreeBtn.classList.add('active'); agreeBtn.textContent = '我已阅读并同意'; agreeHint.textContent = '所有文件均已阅读，请点击确认'; }
-                    else { agreeBtn.disabled = true; agreeBtn.classList.remove('active'); agreeBtn.textContent = '我已阅读并同意'; let un = []; if (!generalRead) un.push('《社群自治总纲》'); if (!penalRead) un.push('《严重违规行为处理条例》'); agreeHint.textContent = `请先阅读：${un.join('、')}`; }
-                }
+        }
+        let agreeBtn=document.getElementById('agreeBtn');
+        let hint=document.getElementById('agreeHint');
+        let allRead=allFilesRead();
+        let agreed=isAgreed();
+        if(agreed){
+            agreeBtn.disabled=true;
+            agreeBtn.classList.remove('active');
+            agreeBtn.textContent='✓ 已同意';
+            let a=getStoredAgree();
+            let ts=a?a.timestamp:null;
+            let timestr=ts?new Date(ts).toLocaleString('zh-CN'):'';
+            hint.textContent=`您已于 ${timestr} 确认遵守全部章程`;
+        } else {
+            if(allRead){
+                agreeBtn.disabled=false;
+                agreeBtn.classList.add('active');
+                agreeBtn.textContent='我已阅读并同意';
+                hint.textContent='所有文件均已阅读，请点击确认遵守';
+            } else {
+                agreeBtn.disabled=true;
+                agreeBtn.classList.remove('active');
+                agreeBtn.textContent='我已阅读并同意';
+                let unreads=Object.keys(FILES).filter(id=>!isFileRead(id)).map(id=>FILES[id].name);
+                hint.textContent=`请先阅读：${unreads.join('、')}`;
             }
-            function markReadAndUpdate(id) { if (!isFileRead(id)) { markFileRead(id); updateUI(); } }
-            function confirmAgree() { if (!allFilesRead()) return; if (isAgreed()) return; setAgreed(); updateUI(); alert('感谢您的确认！您已承诺遵守群内全部规章制度。'); }
+        }
+    }
 
-            function smoothScrollToElement(el) { if (!el) return; let top = el.getBoundingClientRect().top + window.scrollY - 70; window.scrollTo({ top, behavior: 'smooth' }); }
-            function buildTocForDocument(docId) {
-                let doc = document.getElementById(docId); if (!doc) return; let body = doc.querySelector('.doc-body'); if (!body) return;
-                let headings = body.querySelectorAll('.chapter, .section'); if (!headings.length) return;
-                tocListEl.innerHTML = ''; let items = [];
-                headings.forEach((h, idx) => { if (!h.id) h.id = `toc-${docId}-${idx}`; let txt = h.innerText.trim(); if (txt.length > 40) txt = txt.slice(0, 38) + '…'; let li = document.createElement('li'); let a = document.createElement('a'); a.textContent = txt; a.href = `#${h.id}`; a.addEventListener('click', e => { e.preventDefault(); smoothScrollToElement(h); }); if (h.classList.contains('chapter')) a.classList.add('toc-level-1'); else a.classList.add('toc-level-2'); li.appendChild(a); tocListEl.appendChild(li); items.push({ element: h, link: a }); });
-                return items;
+    let currentView='home', scrollHandler=null, currentTocItems=[];
+    const breadcrumb=document.getElementById('breadcrumb');
+    const listHome=document.getElementById('listHome');
+    const listFolder=document.getElementById('listFolder');
+    const floatingToc=document.getElementById('floatingToc');
+    const tocList=document.getElementById('tocList');
+
+    function hideAllViews(){
+        listHome.classList.add('hidden');
+        listFolder.classList.add('hidden');
+        document.querySelectorAll('.content-view').forEach(v=>v.classList.remove('active'));
+    }
+    function updateBreadcrumb(view){
+        breadcrumb.innerHTML='';
+        if(view==='home') breadcrumb.innerHTML='<span class="crumb current" data-target="home">🏠 首页</span>';
+        else if(view==='folder') breadcrumb.innerHTML='<span class="crumb" data-target="home">🏠 首页</span><span class="sep">›</span><span class="crumb current">📖 自治章程全编</span>';
+        else if(view==='docGeneral') breadcrumb.innerHTML='<span class="crumb" data-target="home">🏠 首页</span><span class="sep">›</span><span class="crumb" data-target="folder">自治章程全编</span><span class="sep">›</span><span class="crumb current">社群自治总纲</span>';
+        else if(view==='docPenal') breadcrumb.innerHTML='<span class="crumb" data-target="home">🏠 首页</span><span class="sep">›</span><span class="crumb" data-target="folder">自治章程全编</span><span class="sep">›</span><span class="crumb current">严重违规行为处理条例</span>';
+        else if(view==='docDaily') breadcrumb.innerHTML='<span class="crumb" data-target="home">🏠 首页</span><span class="sep">›</span><span class="crumb" data-target="folder">自治章程全编</span><span class="sep">›</span><span class="crumb current">日常秩序维护办法</span>';
+        else if(view==='docElection') breadcrumb.innerHTML='<span class="crumb" data-target="home">🏠 首页</span><span class="sep">›</span><span class="crumb" data-target="folder">自治章程全编</span><span class="sep">›</span><span class="crumb current">管理员选举与议事规则</span>';
+        else if(view==='docMember') breadcrumb.innerHTML='<span class="crumb" data-target="home">🏠 首页</span><span class="sep">›</span><span class="crumb" data-target="folder">自治章程全编</span><span class="sep">›</span><span class="crumb current">成员入群与退出规则</span>';
+        else if(view==='docEmergency') breadcrumb.innerHTML='<span class="crumb" data-target="home">🏠 首页</span><span class="sep">›</span><span class="crumb" data-target="folder">自治章程全编</span><span class="sep">›</span><span class="crumb current">紧急状态与临时处置条例</span>';
+        document.querySelectorAll('.breadcrumb .crumb[data-target]').forEach(cr=>{
+            cr.addEventListener('click',e=>{
+                let t=cr.getAttribute('data-target');
+                if(t==='home') navigateTo('home');
+                else if(t==='folder') navigateTo('folder');
+            });
+        });
+    }
+
+    function buildToc(docElementId){
+        let docDiv=document.getElementById(docElementId);
+        if(!docDiv) return [];
+        let body=docDiv.querySelector('.doc-body');
+        if(!body) return [];
+        let headings=body.querySelectorAll('.chapter, .section');
+        tocList.innerHTML='';
+        let items=[];
+        headings.forEach((h,idx)=>{
+            if(!h.id) h.id=`toc-${docElementId}-${idx}`;
+            let txt=h.innerText.trim().slice(0,40);
+            let li=document.createElement('li');
+            let a=document.createElement('a');
+            a.textContent=txt;
+            a.href=`#${h.id}`;
+            a.addEventListener('click',(e)=>{
+                e.preventDefault();
+                let top=h.getBoundingClientRect().top+window.scrollY-70;
+                window.scrollTo({top,behavior:'smooth'});
+            });
+            if(h.classList.contains('chapter')) a.classList.add('toc-level-1');
+            else a.classList.add('toc-level-2');
+            li.appendChild(a);
+            tocList.appendChild(li);
+            items.push({element:h,link:a});
+        });
+        return items;
+    }
+    function highlightCurrent(items){
+        if(!items.length) return;
+        let best=-1,bestDist=Infinity,mid=window.scrollY+100;
+        items.forEach((item,idx)=>{
+            let top=item.element.getBoundingClientRect().top+window.scrollY;
+            let d=Math.abs(top-mid);
+            if(d<bestDist && item.element.getBoundingClientRect().top<window.innerHeight-80){
+                bestDist=d; best=idx;
             }
-            function highlightCurrentTocItem(items) { if (!items.length) return; let best = -1, bestDist = Infinity; let mid = window.scrollY + 100; for (let i = 0; i < items.length; i++) { let top = items[i].element.getBoundingClientRect().top + window.scrollY; let d = Math.abs(top - mid); if (d < bestDist && items[i].element.getBoundingClientRect().top < window.innerHeight - 100) { bestDist = d; best = i; } } if (best === -1 && items.length) best = 0; items.forEach((item, idx) => { if (idx === best) item.link.classList.add('active'); else item.link.classList.remove('active'); }); }
-            function enableScrollHighlight(items) { if (scrollHandler) window.removeEventListener('scroll', scrollHandler); scrollHandler = () => highlightCurrentTocItem(items); window.addEventListener('scroll', scrollHandler); highlightCurrentTocItem(items); }
-            function disableScrollHighlight() { if (scrollHandler) window.removeEventListener('scroll', scrollHandler); scrollHandler = null; }
-            function refreshToc() { if (currentView === 'docGeneral') { let items = buildTocForDocument('docGeneral'); currentTocItems = items || []; if (currentTocItems.length) { floatingToc.classList.add('visible'); enableScrollHighlight(currentTocItems); } else floatingToc.classList.remove('visible'); } else if (currentView === 'docPenal') { let items = buildTocForDocument('docPenal'); currentTocItems = items || []; if (currentTocItems.length) { floatingToc.classList.add('visible'); enableScrollHighlight(currentTocItems); } else floatingToc.classList.remove('visible'); } else { floatingToc.classList.remove('visible'); disableScrollHighlight(); } }
-            function hideAllViews() { listHome.classList.add('hidden'); listFolder.classList.add('hidden'); docGeneral.classList.remove('active'); docPenal.classList.remove('active'); }
-            function updateBreadcrumb(view) { breadcrumb.innerHTML = ''; if (view === 'home') breadcrumb.innerHTML = '<span class="crumb current" data-target="home">📁 首页</span>'; else if (view === 'folder') breadcrumb.innerHTML = '<span class="crumb" data-target="home">📁 首页</span><span class="sep">›</span><span class="crumb current">入群必读</span>'; else if (view === 'docGeneral') breadcrumb.innerHTML = '<span class="crumb" data-target="home">📁 首页</span><span class="sep">›</span><span class="crumb" data-target="folder">入群必读</span><span class="sep">›</span><span class="crumb current">社群自治总纲</span>'; else if (view === 'docPenal') breadcrumb.innerHTML = '<span class="crumb" data-target="home">📁 首页</span><span class="sep">›</span><span class="crumb" data-target="folder">入群必读</span><span class="sep">›</span><span class="crumb current">严重违规行为处理条例</span>'; bindBreadcrumbClicks(); }
-            function bindBreadcrumbClicks() { document.querySelectorAll('.breadcrumb .crumb[data-target]').forEach(crumb => { crumb.addEventListener('click', e => { e.preventDefault(); let t = crumb.getAttribute('data-target'); if (t === 'home') navigateTo('home'); else if (t === 'folder') navigateTo('folder'); }); }); }
-            function navigateTo(view) { hideAllViews(); currentView = view; if (view === 'home') listHome.classList.remove('hidden'); else if (view === 'folder') { listFolder.classList.remove('hidden'); updateUI(); } else if (view === 'docGeneral') { docGeneral.classList.add('active'); markReadAndUpdate('general'); } else if (view === 'docPenal') { docPenal.classList.add('active'); markReadAndUpdate('penal'); } updateBreadcrumb(view); refreshToc(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
-            agreeBtn.addEventListener('click', confirmAgree);
-            document.addEventListener('click', e => { let card = e.target.closest('.list-card'); if (card) { let action = card.getAttribute('data-action'); if (action === 'openFolder') navigateTo('folder'); else if (action === 'openDoc') { let doc = card.getAttribute('data-doc'); if (doc === 'general') navigateTo('docGeneral'); else if (doc === 'penal') navigateTo('docPenal'); } return; } let back = e.target.closest('.back-btn'); if (back) { let action = back.getAttribute('data-action'); if (action === 'backToHome') navigateTo('home'); else if (action === 'backToFolder') navigateTo('folder'); } });
-            document.addEventListener('keydown', e => { if (e.key === 'Backspace' && !e.target.closest('input,textarea,[contenteditable]')) { e.preventDefault(); if (currentView === 'docGeneral' || currentView === 'docPenal') navigateTo('folder'); else if (currentView === 'folder') navigateTo('home'); } });
-            validateVersionsAndReset(); updateUI(); navigateTo('home');
-        })();
-    </script>
+        });
+        if(best===-1 && items.length) best=0;
+        items.forEach((item,idx)=>{
+            if(idx===best) item.link.classList.add('active');
+            else item.link.classList.remove('active');
+        });
+    }
+    function enableScrollHighlight(items){
+        if(scrollHandler) window.removeEventListener('scroll',scrollHandler);
+        scrollHandler=()=>highlightCurrent(items);
+        window.addEventListener('scroll',scrollHandler);
+        highlightCurrent(items);
+    }
+    function refreshToc(){
+        if(currentView.startsWith('doc')){
+            let items=buildToc(currentView);
+            currentTocItems=items||[];
+            if(currentTocItems.length){ floatingToc.classList.add('visible'); enableScrollHighlight(currentTocItems); }
+            else floatingToc.classList.remove('visible');
+        } else { floatingToc.classList.remove('visible'); if(scrollHandler) window.removeEventListener('scroll',scrollHandler); }
+    }
+    function navigateTo(view){
+        hideAllViews();
+        currentView=view;
+        if(view==='home') listHome.classList.remove('hidden');
+        else if(view==='folder') listFolder.classList.remove('hidden');
+        else if(view==='docGeneral') { document.getElementById('docGeneral').classList.add('active'); markFileRead('general'); }
+        else if(view==='docPenal') { document.getElementById('docPenal').classList.add('active'); markFileRead('penal'); }
+        else if(view==='docDaily') { document.getElementById('docDaily').classList.add('active'); markFileRead('daily'); }
+        else if(view==='docElection') { document.getElementById('docElection').classList.add('active'); markFileRead('election'); }
+        else if(view==='docMember') { document.getElementById('docMember').classList.add('active'); markFileRead('member'); }
+        else if(view==='docEmergency') { document.getElementById('docEmergency').classList.add('active'); markFileRead('emergency'); }
+        updateBreadcrumb(view);
+        refreshToc();
+        window.scrollTo({top:0,behavior:'smooth'});
+    }
+
+    document.addEventListener('click',e=>{
+        let card=e.target.closest('.list-card');
+        if(card){
+            let action=card.getAttribute('data-action');
+            if(action==='openFolder') navigateTo('folder');
+            else if(action==='openDoc'){
+                let doc=card.getAttribute('data-doc');
+                if(doc==='general') navigateTo('docGeneral');
+                else if(doc==='penal') navigateTo('docPenal');
+                else if(doc==='daily') navigateTo('docDaily');
+                else if(doc==='election') navigateTo('docElection');
+                else if(doc==='member') navigateTo('docMember');
+                else if(doc==='emergency') navigateTo('docEmergency');
+            }
+            return;
+        }
+        let back=e.target.closest('.back-btn');
+        if(back){
+            let act=back.getAttribute('data-action');
+            if(act==='backToHome') navigateTo('home');
+            else if(act==='backToFolder') navigateTo('folder');
+        }
+    });
+    document.getElementById('agreeBtn')?.addEventListener('click',()=>{
+        if(allFilesRead() && !isAgreed()){ setAgreed(); alert('感谢确认！请您承诺遵守群内全部规章制度。'); }
+    });
+    validateVersions();
+    updateUI();
+    navigateTo('home');
+})();
+</script>
 </body>
-
 </html>
